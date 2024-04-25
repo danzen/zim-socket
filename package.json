@@ -1,0 +1,33 @@
+{
+  "name": "zim-socket",
+  "version": "1.1.0",
+  "description": "Multiuser with Socket.io for the ZIM JavaScript Canvas Framework",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/danzen/zim-socket.git"
+  },
+  "keywords": [
+    "socket",
+    "multiuser",
+    "socketio",
+    "zim",
+    "zimjs",
+    "chat",
+    "avatars",
+    "rooms"
+  ],
+  "author": "Dr Abstract",
+  "license": "MIT",
+  "dependencies": {
+    "socket.io-client": "^4.7.5"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.5",
+    "zimjs": "^16.3.0"
+  }
+}
