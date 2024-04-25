@@ -1,7 +1,7 @@
 
-![socket](https://github.com/danzen/zim-socket/assets/380281/c7088f00-8b85-40b1-b37e-d8215cd9adf7)
-
 <p>ZIM Socket is a helper module for the ZIM JavaScript Canvas Framework that works with Socket.IO.</p>
+
+![socket](https://github.com/danzen/zim-socket/assets/380281/c7088f00-8b85-40b1-b37e-d8215cd9adf7)
 
 <p>ZIM Socket uses a simple yet powerful multiuser paradigm:
   
