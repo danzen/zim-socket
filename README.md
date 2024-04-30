@@ -37,22 +37,32 @@ See the main ZIM NPM at <a href=https://www.npmjs.com/package/zimjs target=node>
 
 // import zim and {socket} as above
 // zimSocketURL will use our server for the ZIM Socket Server
-// see the @zimjs/socket-server package for using ZIM Socket Server on your own server
+// see the @zimjs/socket-server package for using your own server
 // this simple example is included in the public folder of that package
 
-const socket = new Socket(zimSocketURL, "test");
-socket.on("ready", ()=>{
-    
-    const circle = new zim.Circle().center();
-    S.on("stagemousedown", ()=>{
-        circle.animate({x:F.mouseX, y:F.mouseY}, 1, "backOut");
-        socket.setProperties({x:F.mouseX, y:F.mouseY});
-    });
-    socket.on("data", (d)=>{
-        if (d.x != null) circle.animate({x:d.x, y:d.y}, 1, "backOut");
-    });        
+const socket = new Socket(zimSocketURL, "test")
+socket.on("ready", () => {
 
-});   
+    const circle = new Circle().center();
+
+    // check to see if someone has already moved the circle
+    const latestX = socket.getLatestValue("x")
+    const latestY = socket.getLatestValue("y")
+    if (latestX != null) {
+        circle.loc(latestX, latestY)
+    }
+
+    S.on("stagemousedown", () => {
+        circle.animate({ x: F.mouseX, y: F.mouseY }, 1, "backOut")
+        socket.setProperties({ x: F.mouseX, y: F.mouseY })
+    })
+    socket.on("data", (d) => {
+        if (d.x != null) circle.animate({ x: d.x, y: d.y }, 1, "backOut")
+    })
+
+    S.update()
+
+})
 ```
 
 <h2>SERVER</h2>
@@ -71,6 +81,7 @@ You can use our servers (like all the examples) for development.  BUT... if you 
 <li><a href=https://zimjs.com/chat.html target="b2">ZIM Socket with Socket.IO - CHAT</a> - HTML only</li>
 
 <h2>VIDEOS</h2>
+<li><a href=https://www.youtube.com/watch?v=LwTVoG_PVrU target="fm0">ZIM Explore 88 - ZIM Socket in NodeJS NPM</a></li>
 <li><a href=https://www.youtube.com/watch?v=fTshMvjsQm8 target="fm2">ZIM Explore 81 - Multiuser ZIM in VR</a></li>
 <li><a href=https://www.youtube.com/watch?v=pijWLe2bm3c target="fm3">ZIM Explore 53 - Multiuser Patternoids</a></li>
 <li><a href=https://www.youtube.com/watch?v=WJAyHITQsds target="fm">ZIM Bubbling 133 - ZIM Sockets</a></li>
