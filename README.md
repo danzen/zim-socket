@@ -31,6 +31,30 @@ import zim from "https://zimjs.org/cdn/016/zim_socket";
 import zim from "zimjs"
 import { Socket } from "@zimjs/socket"
 ```
+See the main ZIM NPM at <a href=https://www.npmjs.com/package/zimjs target=node>ZIM&nbsp;package</a> for starting an app with Vite or using another framework such as React, Vue, Angular, or Svelte.  Once you have a project going, here is some sample test code for inside the ZIM Frame() ready event function:
+
+```JavaScript
+
+// import zim and {socket} as above
+// zimSocketURL will use our server for the ZIM Socket Server
+// see the @zimjs/socket-server package for using ZIM Socket Server on your own server
+// this simple example is included in the public folder of that package
+
+const socket = new Socket(zimSocketURL, "test");
+socket.on("ready", ()=>{
+    
+    const circle = new Circle().center();
+    S.on("stagemousedown", ()=>{
+        circle.animate({x:F.mouseX, y:F.mouseY}, 1, "backOut");
+        socket.setProperties({x:F.mouseX, y:F.mouseY});
+    });
+    socket.on("data", (d)=>{
+        if (d.x != null) circle.animate({x:d.x, y:d.y}, 1, "backOut");
+    });        
+
+});   
+```
+
 <h2>SERVER</h2>
 You can use our servers (like all the examples) for development.  BUT... if you are running your app with lots of traffic, then please host your own version of ZIM Socket Server.  
 <a href=https://zimjs.com/socket/server.zip>Dowload&nbsp;the&nbsp;ZIP</a> or get from NPM <a href=https://www.npmjs.com/package/@zimjs/socket-server target=bb>@zimjs/socket-server</a>.
