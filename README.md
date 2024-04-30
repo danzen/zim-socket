@@ -43,7 +43,7 @@ See the main ZIM NPM at <a href=https://www.npmjs.com/package/zimjs target=node>
 const socket = new Socket(zimSocketURL, "test");
 socket.on("ready", ()=>{
     
-    const circle = new Circle().center();
+    const circle = new zim.Circle().center();
     S.on("stagemousedown", ()=>{
         circle.animate({x:F.mouseX, y:F.mouseY}, 1, "backOut");
         socket.setProperties({x:F.mouseX, y:F.mouseY});
