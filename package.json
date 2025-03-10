@@ -1,6 +1,6 @@
 {
   "name": "@zimjs/socket",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "Multiuser CLient with Socket.IO for the ZIM JavaScript Canvas Framework.  Also see @zimjs/socket-server if not using the ZIM Server for the server-side.",
   "main": "index.js",
   "scripts": {
@@ -28,7 +28,10 @@
     "socket.io-client": "^4.7.5"
   },
   "devDependencies": {
-    "typescript": "^5.4.5",
-    "zimjs": "^16.3.0"
+    "typescript": "^5.3.3",
+    "zimjs": "^17.3.3"
+  },
+  "peerDependencies": {
+    "zimjs": "^17.3.3"
   }
 }
