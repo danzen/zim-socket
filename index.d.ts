@@ -17,12 +17,12 @@ declare namespace zim {
 		getOtherData(id: string): {}
 		getSenderProperty(propertyName: string): any
 		getSenderData(): {}
-		getProperties(propertyName: string): [any]
+		getProperties(propertyName: string): any[]
 		getData(): {}
 		getLatestValue(propertyName: string): any
 		getLatestTime(propertyName: string): number
 		getLatestValueID(propertyName: string): string
-		getLatestProperties(propertyName: string): [any]
+		getLatestProperties(propertyName: string): any[]
 		appendToHistory(someText: string): void
 		clearHistory(): void
 		dispose(): void
